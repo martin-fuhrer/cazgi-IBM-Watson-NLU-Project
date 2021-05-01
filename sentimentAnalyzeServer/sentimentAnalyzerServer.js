@@ -87,7 +87,7 @@ app.get("/text/sentiment", (req,res) => {
     };
     getNLUInstance().analyze(analyzeParams)
     .then(analysisResults => {
-        return res.send(analysisResults);
+        return res.send(analysisResults.result.sentiment.document.label);
     })
     .catch(err => {
         return res.send(err.toString());
